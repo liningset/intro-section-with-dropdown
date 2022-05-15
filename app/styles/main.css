@@ -1,0 +1,356 @@
+.menu-toggle {
+  position: relative;
+  display: block;
+  width: 30px;
+  height: 26px;
+  background: transparent;
+  border-top: 3px solid;
+  border-bottom: 3px solid;
+  color: #151515;
+  font-size: 0;
+  transition: all 0.25s ease-in-out;
+}
+.menu-toggle:before, .menu-toggle:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s ease-in-out;
+}
+
+button.is-active {
+  border-color: transparent;
+}
+button.is-active:before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+button.is-active:after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal {
+  padding-top: 4rem;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+}
+.modal .navlist1 > li,
+.modal .navlist2 > li {
+  padding-block: 0.5rem;
+}
+.modal .navlist1 {
+  list-style: none;
+  color: hsl(0deg, 0%, 41%);
+  width: 80%;
+}
+.modal .navlist1 li {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.modal .navlist1 li i {
+  margin-left: 0.5rem;
+}
+.modal .navlist1 li .dropdown1,
+.modal .navlist1 li .dropdown2 {
+  list-style: none;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  overflow: hidden;
+  padding: 0;
+  height: 0;
+}
+.modal .navlist1 li .dropdown1 li img,
+.modal .navlist1 li .dropdown2 li img {
+  margin-right: 0.5rem;
+}
+.modal .navlist1 li .dropdown1 li a,
+.modal .navlist1 li .dropdown2 li a {
+  white-space: nowrap;
+}
+.modal .navlist1 li:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+.modal .navlist1 a {
+  color: hsl(0deg, 0%, 41%);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  cursor: pointer;
+}
+.modal .navlist1 a:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+.modal .navlist2 {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  list-style: none;
+}
+.modal .navlist2 li {
+  color: hsl(0deg, 0%, 41%);
+  cursor: pointer;
+}
+.modal .navlist2 li:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Epilogue", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 1550px;
+  display: flex;
+  flex-direction: column;
+  margin-inline: auto;
+}
+
+p {
+  color: hsl(0deg, 0%, 41%);
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.img-desk {
+  display: none;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-block: 1.25rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+}
+.navbar > ul {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-block: auto;
+}
+
+.main--img {
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+}
+.main--img .img-mob {
+  width: min(100%, 450px);
+}
+.main--img .img-desk {
+  width: 100%;
+}
+
+.main--text {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-block: 2rem 4rem;
+  width: 90%;
+  text-align: center;
+}
+.main--text .main-text-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.main--text .main-text-inner .cta-btn {
+  border: 2px solid hsl(0deg, 0%, 8%);
+  background: hsl(0deg, 0%, 8%);
+  color: hsl(0deg, 0%, 98%);
+  transition: all 0.3s ease;
+  padding: 0.75rem 1rem;
+  border-radius: 1rem;
+  font-weight: 700;
+}
+.main--text .main-text-inner .cta-btn:hover {
+  background: hsl(0deg, 0%, 98%);
+  color: hsl(0deg, 0%, 8%);
+}
+.main--text .clients-logos {
+  display: flex;
+  list-style: none;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+.main--text .clients-logos li {
+  width: min(20%, 7.5rem);
+}
+.main--text .clients-logos li img {
+  width: 100%;
+}
+
+@media (min-width: 800px) {
+  h1 {
+    font-size: calc(2rem + 2vw);
+  }
+
+  .img-desk {
+    display: block;
+  }
+
+  .img-mob {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: flex-start;
+    gap: 3rem;
+  }
+  .navbar > ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 2vw;
+  }
+  .navbar > ul .nav-item {
+    position: relative;
+    color: hsl(0deg, 0%, 41%);
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .navbar > ul .nav-item a {
+    text-decoration: none;
+    color: hsl(0deg, 0%, 41%);
+    transition: 0.3s ease;
+  }
+  .navbar > ul .nav-item a:hover {
+    color: hsl(0deg, 0%, 8%);
+  }
+  .navbar > ul .nav-item i {
+    margin-left: 0.5rem;
+    transition: 0.5s ease;
+  }
+  .navbar > ul .nav-item.special {
+    border: 2px solid currentColor;
+    background: none;
+    color: hsl(0deg, 0%, 41%);
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    border-radius: 1rem;
+    font-weight: 700;
+  }
+  .navbar > ul .nav-item.special:hover {
+    background: hsl(0deg, 0%, 98%);
+    color: hsl(0deg, 0%, 8%);
+  }
+  .navbar > ul .nav-item:hover {
+    color: hsl(0deg, 0%, 8%);
+  }
+  .navbar > ul .nav-item:hover ul {
+    transform: scale(1);
+  }
+  .navbar > ul .nav-item:hover i {
+    transform: rotateX(0.5turn);
+  }
+  .navbar > ul .nav-item > ul {
+    position: absolute;
+    top: calc(100% + 1rem);
+    white-space: nowrap;
+    list-style: none;
+    background: #fff;
+    padding: 1rem;
+    box-shadow: 0 0 2rem rgba(109, 109, 109, 0.25);
+    border-radius: 1rem;
+    transform: scale(0);
+    transform-origin: top;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .navbar > ul .nav-item > ul::before {
+    content: "";
+    height: 1rem;
+    left: 0;
+    right: 0;
+    position: absolute;
+    bottom: 100%;
+  }
+  .navbar > ul .nav-item > ul.dropdown1 {
+    right: 0;
+  }
+  .navbar > ul .nav-item > ul.dropdown1 li img {
+    margin-right: 0.5rem;
+  }
+  .navbar > ul .nav-item > ul.dropdown2 {
+    left: 0;
+  }
+  .navbar > ul.navlist2 {
+    margin-left: auto;
+  }
+  .navbar .mobile-menu {
+    display: none;
+  }
+
+  main {
+    flex-direction: row;
+    min-height: 80vh;
+    width: 80%;
+    margin-inline: auto;
+  }
+
+  .main--img {
+    flex: 1;
+  }
+
+  .main--text {
+    margin: 0;
+    flex: 2;
+    gap: 4rem;
+    height: 100%;
+    text-align: left;
+    justify-content: space-between;
+  }
+  .main--text .main-text-inner {
+    align-items: flex-start;
+    gap: 2rem;
+  }
+  .main--text .clients-logos {
+    justify-content: flex-start;
+    gap: 2vw;
+  }
+  .main--text .clients-logos li {
+    width: 15%;
+  }
+}/*# sourceMappingURL=main.css.map */

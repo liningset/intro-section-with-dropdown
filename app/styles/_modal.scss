@@ -1,0 +1,89 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: flex-end;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal {
+  padding-top: 4rem;
+  width: 60vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+
+  .navlist1 > li,
+  .navlist2 > li {
+    padding-block: 0.5rem;
+  }
+
+  //-----------------outer ul------------------
+  .navlist1 {
+    list-style: none;
+    color: $Medium-Gray;
+    width: 80%;
+
+    li {
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      i {
+        margin-left: 0.5rem;
+      }
+      //----------------inner ul------------------------
+      .dropdown1,
+      .dropdown2 {
+        list-style: none;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow: hidden;
+        padding: 0;
+        height: 0;
+
+        li img {
+          margin-right: 0.5rem;
+        }
+        li a {
+          white-space: nowrap;
+        }
+      }
+
+      &:hover {
+        color: $Almost-Black;
+      }
+    }
+
+    a {
+      color: $Medium-Gray;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: $Almost-Black;
+      }
+    }
+  }
+
+  .navlist2 {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+    list-style: none;
+
+    li {
+      color: $Medium-Gray;
+      cursor: pointer;
+
+      &:hover {
+        color: $Almost-Black;
+      }
+    }
+  }
+}
