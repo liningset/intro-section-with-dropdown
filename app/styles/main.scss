@@ -60,7 +60,7 @@ main {
     width: min(100%, 450px);
   }
   .img-desk {
-    width: 100%;
+    width: min(100%, 350px);
   }
 }
 
@@ -97,12 +97,13 @@ main {
   .clients-logos {
     display: flex;
     list-style: none;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 2rem;
     width: 100%;
 
     li {
-      width: min(20%, 7.5rem);
+      width: min(25%, 5rem);
 
       img {
         width: 100%;
@@ -113,7 +114,8 @@ main {
 
 @media (min-width: 800px) {
   h1 {
-    font-size: calc(2rem + 2vw);
+    font-size: min(calc(2rem + 3vw), 5rem);
+    max-width: 700px;
   }
   .img-desk {
     display: block;
@@ -121,6 +123,10 @@ main {
   .img-mob {
     display: none;
   }
+  .nav-container {
+    position: absolute;
+  }
+
   .navbar {
     justify-content: flex-start;
     gap: 3rem;
@@ -161,7 +167,7 @@ main {
           font-weight: 700;
 
           &:hover {
-            background: $Almost-White;
+            background: transparent;
             color: $Almost-Black;
           }
         }
@@ -215,6 +221,11 @@ main {
         &.dropdown2 {
           left: 0;
         }
+
+        a {
+          width: 100%;
+          display: inline-block;
+        }
       }
 
       &.navlist2 {
@@ -234,15 +245,17 @@ main {
   }
 
   .main--img {
-    flex: 1;
+    flex: 2;
+    justify-content: flex-end;
   }
   .main--text {
     margin: 0;
     flex: 2;
-    gap: 4rem;
+    gap: 2rem;
     height: 100%;
     text-align: left;
     justify-content: space-between;
+    align-self: flex-end;
 
     .main-text-inner {
       align-items: flex-start;
@@ -253,7 +266,7 @@ main {
       justify-content: flex-start;
       gap: 2vw;
       li {
-        width: 15%;
+        width: min(17.5%, 6rem);
       }
     }
   }

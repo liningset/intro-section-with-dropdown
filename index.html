@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
 
     <title>Intro section with dropdown navigation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,10 +26,10 @@
   <body>
     <div class="overlay">
       <div class="modal">
-        <ul class="navlist1">
-          <li class="nav-item">
+        <ul class="navlist navlist1">
+          <li class="nav-item has-dropdown">
             Features<i class="fas fa-angle-down"></i>
-            <ul class="dropdown1">
+            <ul class="dropdown dropdown1">
               <li>
                 <a href="#">
                   <img src="./images/icon-todo.svg" alt="" />Todo List</a
@@ -49,9 +52,9 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
+          <li class="nav-item has-dropdown">
             Company<i class="fas fa-angle-down"></i>
-            <ul class="dropdown2">
+            <ul class="dropdown dropdown2">
               <li><a href="#">History</a></li>
               <li><a href="#">Our Team</a></li>
               <li><a href="#">Blog</a></li>
@@ -60,7 +63,7 @@
           <li class="nav-item"><a href="#">Careers</a></li>
           <li class="nav-item"><a href="#">About</a></li>
         </ul>
-        <ul class="navlist2">
+        <ul class="navlist navlist2">
           <li class="nav-item">Login</li>
           <li class="nav-item special">Register</li>
         </ul>
@@ -152,6 +155,12 @@
         />
       </div>
     </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"
+      integrity="sha512-H6cPm97FAsgIKmlBA4s774vqoN24V5gSQL4yBTDOY2su2DeXZVhQPxFK4P6GPdnZqM9fg1G3cMv5wD7e6cFLZQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./app/js/script.js"></script>
   </body>
 </html>

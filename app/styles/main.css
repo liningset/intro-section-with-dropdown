@@ -45,19 +45,25 @@ button {
   display: flex;
   justify-content: flex-end;
   background: rgba(0, 0, 0, 0.5);
-  display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
 }
 
 .modal {
   padding-top: 4rem;
   width: 60vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 1rem;
   background: #fff;
+  position: absolute;
+  right: -100%;
+  transition: inherit;
 }
-.modal .navlist1 > li,
-.modal .navlist2 > li {
+.modal .navlist .nav-item {
   padding-block: 0.5rem;
 }
 .modal .navlist1 {
@@ -71,25 +77,25 @@ button {
 }
 .modal .navlist1 li i {
   margin-left: 0.5rem;
+  transition: inherit;
+  pointer-events: none;
 }
-.modal .navlist1 li .dropdown1,
-.modal .navlist1 li .dropdown2 {
+.modal .navlist1 li .dropdown {
   list-style: none;
   padding: 1rem;
   display: flex;
   flex-direction: column;
+  transition: inherit;
   gap: 0.5rem;
   overflow: hidden;
   padding: 0;
   height: 0;
 }
-.modal .navlist1 li .dropdown1 li img,
-.modal .navlist1 li .dropdown2 li img {
-  margin-right: 0.5rem;
+.modal .navlist1 li .dropdown li {
+  height: 1.5rem;
 }
-.modal .navlist1 li .dropdown1 li a,
-.modal .navlist1 li .dropdown2 li a {
-  white-space: nowrap;
+.modal .navlist1 li .dropdown li img {
+  margin-right: 0.5rem;
 }
 .modal .navlist1 li:hover {
   color: hsl(0deg, 0%, 8%);
@@ -98,7 +104,11 @@ button {
   color: hsl(0deg, 0%, 41%);
   transition: all 0.3s ease;
   text-decoration: none;
+  white-space: nowrap;
   cursor: pointer;
+  display: inline-block;
+  height: 100%;
+  width: 100%;
 }
 .modal .navlist1 a:hover {
   color: hsl(0deg, 0%, 8%);
@@ -107,14 +117,29 @@ button {
   display: flex;
   flex-direction: column;
   width: 80%;
-  align-items: center;
+  text-align: center;
   list-style: none;
 }
 .modal .navlist2 li {
+  transition: all 0.3s ease;
   color: hsl(0deg, 0%, 41%);
   cursor: pointer;
 }
 .modal .navlist2 li:hover {
+  color: hsl(0deg, 0%, 8%);
+}
+.modal .navlist2 li.special {
+  border: 2px solid currentColor;
+  background: none;
+  color: hsl(0deg, 0%, 41%);
+  transition: all 0.3s ease;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 700;
+  margin-block: 0.5rem;
+}
+.modal .navlist2 li.special:hover {
+  background: transparent;
   color: hsl(0deg, 0%, 8%);
 }
 
@@ -176,7 +201,7 @@ main {
   width: min(100%, 450px);
 }
 .main--img .img-desk {
-  width: 100%;
+  width: min(100%, 350px);
 }
 
 .main--text {
@@ -209,12 +234,13 @@ main {
 .main--text .clients-logos {
   display: flex;
   list-style: none;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 2rem;
   width: 100%;
 }
 .main--text .clients-logos li {
-  width: min(20%, 7.5rem);
+  width: min(25%, 5rem);
 }
 .main--text .clients-logos li img {
   width: 100%;
@@ -222,7 +248,8 @@ main {
 
 @media (min-width: 800px) {
   h1 {
-    font-size: calc(2rem + 2vw);
+    font-size: min(2rem + 3vw, 5rem);
+    max-width: 700px;
   }
 
   .img-desk {
@@ -231,6 +258,10 @@ main {
 
   .img-mob {
     display: none;
+  }
+
+  .nav-container {
+    position: absolute;
   }
 
   .navbar {
@@ -271,7 +302,7 @@ main {
     font-weight: 700;
   }
   .navbar > ul .nav-item.special:hover {
-    background: hsl(0deg, 0%, 98%);
+    background: transparent;
     color: hsl(0deg, 0%, 8%);
   }
   .navbar > ul .nav-item:hover {
@@ -316,6 +347,10 @@ main {
   .navbar > ul .nav-item > ul.dropdown2 {
     left: 0;
   }
+  .navbar > ul .nav-item > ul a {
+    width: 100%;
+    display: inline-block;
+  }
   .navbar > ul.navlist2 {
     margin-left: auto;
   }
@@ -331,16 +366,18 @@ main {
   }
 
   .main--img {
-    flex: 1;
+    flex: 2;
+    justify-content: flex-end;
   }
 
   .main--text {
     margin: 0;
     flex: 2;
-    gap: 4rem;
+    gap: 2rem;
     height: 100%;
     text-align: left;
     justify-content: space-between;
+    align-self: flex-end;
   }
   .main--text .main-text-inner {
     align-items: flex-start;
@@ -351,6 +388,6 @@ main {
     gap: 2vw;
   }
   .main--text .clients-logos li {
-    width: 15%;
+    width: min(17.5%, 6rem);
   }
 }/*# sourceMappingURL=main.css.map */
